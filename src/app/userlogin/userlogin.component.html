@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <h1 class="text" style="font-size: 25px">
+      Welcome to Vehicle Loan Services
+    </h1>
+    <hr style="width: 100%" />
+    <p class="text" style="color: black; font-size: 18px">
+      Enter your details to Login.
+    </p>
+    <p><br /></p>
+    <form (ngSubmit)="login(userlogin)" ngNativeValidate>
+      <input
+        type="text"
+        name="userid"
+        placeholder="Enter UserID"
+        [(ngModel)]="userlogin.userid"
+        required
+      /><br />
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter Password"
+        [(ngModel)]="userlogin.password"
+        required
+      />
+
+      <br />
+      <button type="submit" class="btn login">Login</button
+      ><br /><br /><br /><br />
+      <a routerLink="/login" class="btn" type="button">Back</a>
+    </form>
+  </div>
+</div>

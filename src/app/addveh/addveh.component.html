@@ -1,0 +1,162 @@
+<h3>Enter Vehicle Details</h3>
+<h2>Enter Correct Customer ID</h2>
+<div class="container">
+  <form (ngSubmit)="saveVeh(Vehdata)" #vehForm="ngForm">
+    <table>
+      <tr>
+        <td>
+          <label for="customerID" style="font-weight: 700"
+            >Enter Customer ID</label
+          >
+        </td>
+        <td>
+          <input
+            type="number"
+            name="customerID"
+            id="customerID"
+            [(ngModel)]="Vehdata.customerID"
+            required
+            #customerID="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              customerID.invalid && (customerID.dirty || customerID.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="customerID.errors?.['required']">
+              Customer Id cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="carmake" style="font-weight: 700">Enter Car Make</label>
+        </td>
+        <td>
+          <input
+            type="string"
+            name="carmake"
+            id="carmake"
+            [(ngModel)]="Vehdata.carmake"
+            required
+            #carmake="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="carmake.invalid && (carmake.dirty || carmake.touched)"
+            style="color: red"
+          >
+            <div *ngIf="carmake.errors?.['required']">
+              Car Make cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="carmodel" style="font-weight: 700">Enter Car model</label>
+        </td>
+        <td>
+          <input
+            type="string"
+            name="carmodel"
+            id="carmodel"
+            [(ngModel)]="Vehdata.carmodel"
+            required
+            #carmodel="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="carmodel.invalid && (carmodel.dirty || carmodel.touched)"
+            style="color: red"
+          >
+            <div *ngIf="carmodel.errors?.['required']">
+              Car model cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label
+            for="exShowroomPrice"
+            style="font-weight: 700; padding-left: 15px"
+            >Enter Ex-Showroom Price</label
+          >
+        </td>
+        <td>
+          <input
+            type="number"
+            name="exShowroomPrice"
+            id="exShowroomPrice"
+            [(ngModel)]="Vehdata.exShowroomPrice"
+            required
+            #exShowroomPrice="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              exShowroomPrice.invalid &&
+              (exShowroomPrice.dirty || exShowroomPrice.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="exShowroomPrice.errors?.['required']">
+              Ex-Showroom Price cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="onRoadPrice" style="font-weight: 700"
+            >Enter On Road Price</label
+          >
+        </td>
+        <td>
+          <input
+            type="number"
+            name="onRoadPrice"
+            id="onRoadPrice"
+            [(ngModel)]="Vehdata.onRoadPrice"
+            required
+            #onRoadPrice="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              onRoadPrice.invalid && (onRoadPrice.dirty || onRoadPrice.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="onRoadPrice.errors?.['required']">
+              On road price cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td style="margin-top: 10px; padding-top: 30px; padding-left: 90px">
+          <input
+            type="submit"
+            value="Save"
+            [disabled]="!vehForm.valid"
+            class="btn btn-success"
+          />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

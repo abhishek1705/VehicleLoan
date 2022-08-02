@@ -1,0 +1,130 @@
+<div class="container mt-3">
+  <span>
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="p-4">
+        <div class="row">
+          <div class="col text-center">
+            <button
+              routerLink="/admindashboard"
+              type="button"
+              class="btn btn-outline-primary"
+            >
+              <i class="fa fa-home"></i> Dashboard
+            </button>
+          </div>
+          <div class="col text-center">
+            <button
+              routerLink="/viewallusers"
+              type="button"
+              class="btn btn-outline-info"
+            >
+              <i class="fa fa-id-card-o"></i> All Users
+            </button>
+          </div>
+          <div class="col text-center">
+            <button
+              routerLink="/viewapplicants"
+              type="button"
+              class="btn btn-outline-warning"
+            >
+              <i class="fa fa-user-plus"></i> Applicants
+            </button>
+          </div>
+          <div class="col text-center">
+            <button
+              routerLink="/viewclients"
+              type="button"
+              class="btn btn-outline-success"
+            >
+              <i class="fa fa-money"></i> Clients
+            </button>
+          </div>
+          <div class="col text-center">
+            <button
+              routerLink="/viewrejected"
+              type="button"
+              class="btn btn-outline-danger"
+            >
+              <i class="fa fa-users"></i> Rejected
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h2 class="mx-auto text-info text-center">User List</h2>
+      </div>
+    </nav>
+  </span>
+  <!-- <h3 class="text-info text-center">User List</h3> -->
+  <div class="shadow bg-info bg-opacity-10 border border-info rounded mt-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th (click)="sort('cId')">
+            Customer ID &nbsp;<i class="fa fa-sort"></i>
+          </th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Age</th>
+          <th>Contact</th>
+          <th>Email ID</th>
+          <th>Address</th>
+          <th>State</th>
+          <th>City</th>
+          <th>Pincode</th>
+          <th (click)="sort('userId')">
+            User ID &nbsp;<i class="fa fa-sort"></i>
+          </th>
+          <th>Password</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let user of userlist
+              | orderBy: key:reverse
+              | paginate: { itemsPerPage: 2, currentPage: p }
+          "
+        >
+          <td>{{ user.cId }}</td>
+          <td>{{ user.fname }}</td>
+          <td>{{ user.lname }}</td>
+          <td>{{ user.age }}</td>
+          <td>{{ user.contactNo }}</td>
+          <td>{{ user.emailId }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.state }}</td>
+          <td>{{ user.city }}</td>
+          <td>{{ user.pincode }}</td>
+          <td>{{ user.userId }}</td>
+          <td>{{ user.password }}</td>
+          <td>
+            <a
+              [routerLink]="['/find/', user.CId]"
+              class="btn btn-info"
+              role="button"
+              >Details</a
+            >&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- <a [routerLink]="['/edit/', user.CId]" class="btn btn-warning" role="button">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a [routerLink]="['/delete/', user.CId]" class="btn btn-danger" role="button">Delete</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
+          </td>
+        </tr>
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+  </div>
+</div>

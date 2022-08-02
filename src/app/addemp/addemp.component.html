@@ -1,0 +1,141 @@
+<h2>Enter Employment Details</h2>
+<h3>Enter correct Customer ID</h3>
+<div class="container">
+  <form (ngSubmit)="saveEmp(Empdata)" #empForm="ngForm" ngNativeValidate>
+    <table>
+      <tr>
+        <td>
+          <label for="customerID" style="font-weight: 700"
+            >Enter customer ID</label
+          >
+        </td>
+        <td>
+          <input
+            type="number"
+            name="customerID"
+            id="customerID"
+            [(ngModel)]="Empdata.customerID"
+            required
+            #customerID="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              customerID.invalid && (customerID.dirty || customerID.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="customerID.errors?.['required']">
+              Customer ID cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label
+            for="typeofemployement"
+            style="font-weight: 700; padding-left: 15px"
+            >Enter Type of Employment</label
+          >
+        </td>
+        <td>
+          <input
+            type="string"
+            name="typeofemployement"
+            id="typeofemployement"
+            [(ngModel)]="Empdata.typeofemployement"
+            required
+            #typeofemployement="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              typeofemployement.invalid &&
+              (typeofemployement.dirty || typeofemployement.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="typeofemployement.errors?.['required']">
+              Type of Employment cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="yearlysalary" style="font-weight: 700"
+            >Enter Yearly Salary</label
+          >
+        </td>
+        <td>
+          <input
+            type="number"
+            name="yearlysalary"
+            id="yearlysalary"
+            [(ngModel)]="Empdata.yearlysalary"
+            required
+            #yearlysalary="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              yearlysalary.invalid &&
+              (yearlysalary.dirty || yearlysalary.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="yearlysalary.errors?.['required']">
+              Yearly Salary cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="existingemi" style="font-weight: 700"
+            >Enter Existing EMI</label
+          >
+        </td>
+        <td>
+          <input
+            type="number"
+            name="existingemi"
+            id="existingemi"
+            [(ngModel)]="Empdata.existingemi"
+            required
+            #existingemi="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              existingemi.invalid && (existingemi.dirty || existingemi.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="existingemi.errors?.['required']">
+              Existing EMI cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td style="margin-top: 10px; padding-top: 30px; padding-left: 90px">
+          <input
+            type="submit"
+            value="Save"
+            [disabled]="!empForm.valid"
+            class="btn btn-success"
+          />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

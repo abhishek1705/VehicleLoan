@@ -1,0 +1,257 @@
+<div class="container">
+  <div class="main-body">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/admindashboard">Admin Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+      </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img
+                src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png"
+                alt="Admin"
+                class="rounded-circle"
+                width="150"
+              />
+              <div class="mt-3">
+                <h4>
+                  {{
+                    applicationdata.firstName + " " + applicationdata.lastName
+                  }}
+                </h4>
+                <p class="text-secondary mb-1">{{ applicationdata.userId }}</p>
+                <p class="text-muted font-size-sm">
+                  {{ applicationdata.address + ", " + applicationdata.state }}
+                </p>
+                <button class="btn btn-primary">Contact</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item text-center flex-wrap">
+              <h5 class="mb-0 text-center">Employment Details</h5>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <h6 class="mb-0">Type</h6>
+              <span class="text-secondary">{{
+                applicationdata.typeOfEmployement
+              }}</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <h6 class="mb-0">Yearly Salary</h6>
+              <span class="text-secondary"
+                >₹ {{ applicationdata.yearlySalary }}</span
+              >
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <h6 class="mb-0">Existing EMI</h6>
+              <span class="text-secondary"
+                >₹ {{ applicationdata.existingEmi }}</span
+              >
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <h6 class="mb-0">Customer ID</h6>
+              <span class="text-primary">{{ applicationdata.customerId }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ applicationdata.firstName + " " + applicationdata.lastName }}
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ applicationdata.emailId }}
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Phone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ applicationdata.contactNo }}
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Age</h6>
+              </div>
+              <div class="col-sm-3 text-secondary">
+                {{ applicationdata.age }}
+              </div>
+              <div class="col-sm-3">
+                <h6 class="mb-0 text-center">Gender</h6>
+              </div>
+              <div class="col-sm-3 text-secondary">
+                {{ applicationdata.gender }}
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{
+                  applicationdata.address +
+                    ", " +
+                    applicationdata.city +
+                    ", " +
+                    applicationdata.state +
+                    ", " +
+                    applicationdata.pincode
+                }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <h5 class="text-center mb-3">Loan Details</h5>
+        <hr />
+
+        <div class="row gutters-sm">
+          <div class="col-sm-6 mb-3">
+            <div class="card h-80">
+              <div class="card-body">
+                <h5 class="d-flex align-items-center mb-3">
+                  <i class="material-icons text-info mr-2">Loan Details</i>
+                </h5>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h6 class="mb-0">Loan ID</h6>
+                  </div>
+                  <div class="col-sm-6 text-end">
+                    {{ applicationdata.loanId }}
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <h6 class="mb-0">Loan Amount</h6>
+                  </div>
+                  <div class="col-sm-6 text-end text-secondary">
+                    ₹ {{ applicationdata.loanAmount }}
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <h6 class="mb-0">Loan Tenure</h6>
+                  </div>
+                  <div class="col-sm-6 text-end text-secondary">
+                    {{ applicationdata.loanTenure }}
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <h6 class="mb-0">Loan Interest Rate</h6>
+                  </div>
+                  <div class="col-sm-6 text-end text-secondary">
+                    {{ applicationdata.loanInterestRate }}
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <h6 class="mb-0">Status</h6>
+                  </div>
+                  <div class="col-sm-6 text-end text-secondary">
+                    <ng-template [ngIf]="applicationdata.statusId == 1"
+                      ><h5 class="text-warning">Pending</h5></ng-template
+                    >
+                    <ng-template [ngIf]="applicationdata.statusId == 2"
+                      ><h5 class="text-danger">Rejected</h5></ng-template
+                    >
+                    <ng-template [ngIf]="applicationdata.statusId == 3"
+                      ><h5 class="text-success">Accepted</h5></ng-template
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="d-flex align-items-center mb-3">
+                  <i class="material-icons text-info mr-2">Vehicle Details</i>
+                </h5>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h6 class="mb-0">Vehicle ID</h6>
+                  </div>
+                  <div class="col-sm-6 text-end">
+                    {{ applicationdata.vehicleId }}
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <h6 class="mb-0">Vehicle Make</h6>
+                  </div>
+                  <div class="col-sm-6 text-end text-secondary">
+                    {{ applicationdata.carMake }}
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <h6 class="mb-0">Vehicle Model</h6>
+                  </div>
+                  <div class="col-sm-6 text-end text-secondary">
+                    {{ applicationdata.carModel }}
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <h6 class="mb-0">Ex-Showroom Price</h6>
+                  </div>
+                  <div class="col-sm-6 text-end text-secondary">
+                    ₹ {{ applicationdata.exshowroomPrice }}
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <h6 class="mb-0">OnRoad Price</h6>
+                  </div>
+                  <div class="col-sm-6 text-end text-secondary">
+                    ₹ {{ applicationdata.onroadPrice }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

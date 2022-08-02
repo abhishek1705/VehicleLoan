@@ -1,0 +1,348 @@
+<body>
+  <h1>Welcome to Vehicle Loan Services</h1>
+  <hr width="100%" />
+  <h2>Sign Up Page</h2>
+  <h3>Enter These Details for Registration</h3>
+  <br />
+  <div class="container">
+    <form (ngSubmit)="saveDetails(applicantdata)" #applicantForm="ngForm">
+      <table>
+        <tr>
+          <td>
+            <label for="firstname">Enter First Name:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="text"
+              name="firstname"
+              id="firstname"
+              [(ngModel)]="applicantdata.firstname"
+              required
+              #firstname="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="
+                firstname.invalid && (firstname.dirty || firstname.touched)
+              "
+              style="color: red"
+            >
+              <div *ngIf="firstname.errors?.['required']">
+                First Name cannot be blank
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="lastname">Enter Last Name:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="text"
+              name="lastname"
+              id="lastname"
+              [(ngModel)]="applicantdata.lastname"
+              required
+              #lastname="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)"
+              style="color: red"
+            >
+              <div *ngIf="lastname.errors?.['required']">
+                Last Name cannot be blank
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="age">Enter Age:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="number"
+              onfocus="this.value=''"
+              value="Click here to clear"
+              name="age"
+              id="age"
+              [(ngModel)]="applicantdata.age"
+              required
+              #age="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="age.invalid && (age.dirty || age.touched)"
+              style="color: red"
+            >
+              <div *ngIf="age.errors?.['required']">Age cannot be blank</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="gender">Enter Gender:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="text"
+              name="gender"
+              id="gender"
+              [(ngModel)]="applicantdata.gender"
+              required
+              #gender="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="gender.invalid && (gender.dirty || gender.touched)"
+              style="color: red"
+            >
+              <div *ngIf="gender.errors?.['required']">
+                Gender cannot be blank
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="contactno">Enter Contact No:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="number"
+              onfocus="this.value=''"
+              value="Click here to clear"
+              name="contactno"
+              id="contactno"
+              [(ngModel)]="applicantdata.contactno"
+              required
+              #contactno="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="
+                contactno.invalid && (contactno.dirty || contactno.touched)
+              "
+              style="color: red"
+            >
+              <div *ngIf="contactno.errors?.['required']">
+                Contact No cannot be blank
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="emailid">Enter Email Id:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="email"
+              name="emailid"
+              id="emailid"
+              [(ngModel)]="applicantdata.emailid"
+              required
+              #emailid="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="emailid.invalid && (emailid.dirty || emailid.touched)"
+              style="color: red"
+            >
+              <div *ngIf="emailid.errors?.['required']">
+                Email Id cannot be blank
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="address">Enter Address:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="text"
+              name="address"
+              id="address"
+              [(ngModel)]="applicantdata.address"
+              required
+              #address="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="address.invalid && (address.dirty || address.touched)"
+              style="color: red"
+            >
+              <div *ngIf="address.errors?.['required']">
+                Address cannot be blank
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="state">Enter State:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="text"
+              name="state"
+              id="state"
+              [(ngModel)]="applicantdata.state"
+              required
+              #state="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="state.invalid && (state.dirty || state.touched)"
+              style="color: red"
+            >
+              <div *ngIf="state.errors?.['required']">
+                State cannot be blank
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="city">Enter City:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="text"
+              name="city"
+              id="city"
+              [(ngModel)]="applicantdata.city"
+              required
+              #city="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="city.invalid && (city.dirty || city.touched)"
+              style="color: red"
+            >
+              <div *ngIf="city.errors?.['required']">
+                First Name cannot be blank
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="pincode">Enter Pincode:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="number"
+              name="pincode"
+              id="pincode"
+              onfocus="this.value=''"
+              value="Click here to clear"
+              [(ngModel)]="applicantdata.pincode"
+              required
+              #pincode="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="pincode.invalid && (pincode.dirty || pincode.touched)"
+              style="color: red"
+            >
+              <div *ngIf="pincode.errors?.['required']">
+                Pincode cannot be blank
+              </div>
+            </div>
+          </td>
+        </tr>
+        <hr />
+        <label class="special-label" for="info"
+          >Below Details will be used for Login</label
+        >
+        <hr />
+        <tr>
+          <td>
+            <label for="userid">Set your User ID for Login:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="text"
+              name="userid"
+              id="userid"
+              [(ngModel)]="applicantdata.userid"
+              required
+              #userid="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="userid.invalid && (userid.dirty || userid.touched)"
+              style="color: red"
+            >
+              <div *ngIf="userid.errors?.['required']">
+                User Id cannot be blank
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="password">Set up a Password for Login:</label>
+          </td>
+          <td>
+            <input
+              class="input-style"
+              type="password"
+              name="password"
+              id="password"
+              [(ngModel)]="applicantdata.password"
+              required
+              #password="ngModel"
+            />
+          </td>
+          <td>
+            <div
+              *ngIf="password.invalid && (password.dirty || password.touched)"
+              style="color: red"
+            >
+              <div *ngIf="password.errors?.['required']">
+                Password cannot be blank
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="submit"
+              value="Save"
+              [disabled]="!applicantForm.valid"
+              class="btn btn-success"
+            />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>

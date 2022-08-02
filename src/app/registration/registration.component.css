@@ -1,0 +1,87 @@
+label{
+  font-weight: bold;
+  font-size: larger;
+  text-align: center;
+}
+.text {
+  text-align:center;
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+  font-weight: bold;
+}
+.container {
+  position: relative;
+  background-color: #CCF1FF;
+  padding: 10px 0 30px 0;
+  width: 40%;
+  margin: auto;
+  text-align:justify;
+  margin-top: 10px;
+  margin-bottom: 100px;
+  border-radius: 15px;
+  
+  
+} 
+
+/* style inputs and link buttons */
+input, .btn, .gender {
+  width: 60%;
+  justify-content: center;
+  padding: 10px;
+  border: none;
+  margin: 5px 0;
+  border-radius: 5px;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 5px;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 1px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text] {
+  padding:10px;
+  margin:10px 0;
+}
+
+input[type=text] {
+  padding:10px;
+  border:0;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.input-style{
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #efecec;
+  padding: 12px;
+  border-radius: 3px;
+  width: 250px;
+  font-size: 14px;
+
+}
+h1,h2,h3{
+  color: black;
+  padding-top: 10px;
+  text-align: center;
+
+}
+
+/* body{
+  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.EqgcOEa-o7hUGoyOrv9DnwHaEK%26pid%3DApi&f=1");
+  background-size:cover;
+  background-repeat: no-repeat;
+  height: fit-content;
+  
+  } */

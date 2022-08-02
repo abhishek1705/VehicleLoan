@@ -1,0 +1,134 @@
+<div class="container mt-3">
+  <span>
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="p-4">
+        <div class="row">
+          <div class="col text-center">
+            <button
+              routerLink="/admindashboard"
+              type="button"
+              class="btn btn-outline-primary"
+            >
+              <i class="fa fa-home"></i> Dashboard
+            </button>
+          </div>
+          <div class="col text-center">
+            <button
+              routerLink="/viewallusers"
+              type="button"
+              class="btn btn-outline-info"
+            >
+              <i class="fa fa-id-card-o"></i> All Users
+            </button>
+          </div>
+          <div class="col text-center">
+            <button
+              routerLink="/viewapplicants"
+              type="button"
+              class="btn btn-outline-warning"
+            >
+              <i class="fa fa-user-plus"></i> Applicants
+            </button>
+          </div>
+          <div class="col text-center">
+            <button
+              routerLink="/viewclients"
+              type="button"
+              class="btn btn-outline-success"
+            >
+              <i class="fa fa-money"></i> Clients
+            </button>
+          </div>
+          <div class="col text-center">
+            <button
+              routerLink="/viewrejected"
+              type="button"
+              class="btn btn-outline-danger"
+            >
+              <i class="fa fa-users"></i> Rejected
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h2 class="mx-auto text-danger text-center">Rejected List</h2>
+      </div>
+    </nav>
+  </span>
+  <div class="shadow bg-danger bg-opacity-10 border border-danger rounded mt-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th (click)="sort('loanId')">
+            Loan ID &nbsp;<i class="fa fa-sort"></i>
+          </th>
+          <th (click)="sort('cId')">
+            Customer ID &nbsp;<i class="fa fa-sort"></i>
+          </th>
+          <th>Name</th>
+          <th (click)="sort('loanAmount')">
+            Loan Amount ₹ &nbsp;<i class="fa fa-sort"></i>
+          </th>
+          <th (click)="sort('loanTenure')">
+            Loan Tenure &nbsp;<i class="fa fa-sort"></i>
+          </th>
+          <th (click)="sort('loanInterestRate')">
+            Loan Interest Rate &nbsp;<i class="fa fa-sort"></i>
+          </th>
+          <th>Account Type</th>
+          <th>Processing Fee ₹</th>
+          <th>Vehicle ID</th>
+          <th (click)="sort('onroadPrice')">
+            OnRoad Price ₹ &nbsp;<i class="fa fa-sort"></i>
+          </th>
+          <!-- <th>Status ID</th> ₹ -->
+          <th>Status Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let reject of rejectslist
+              | orderBy: key:reverse
+              | paginate: { itemsPerPage: 2, currentPage: p }
+          "
+        >
+          <td>{{ reject.loanId }}</td>
+          <td>{{ reject.customerId }}</td>
+          <td>{{ reject.firstName + " " + reject.lastName }}</td>
+          <td>{{ reject.loanAmount }}</td>
+          <td>{{ reject.loanTenure }}</td>
+          <td>{{ reject.loanInterestRate }}</td>
+          <td>{{ reject.accountType }}</td>
+          <td>{{ reject.processingFee }}</td>
+          <td>{{ reject.vehicleID }}</td>
+          <td>{{ reject.onroadPrice }}</td>
+          <!-- <td>{{ reject.statusId }}</td> -->
+          <td style="width: 200px">
+            {{ reject.statusName }} &nbsp;
+            <input
+              type="button"
+              class="btn btn-danger"
+              [routerLink]="['/applicationdetailed/', reject.customerId]"
+              value="Details"
+            />&nbsp;&nbsp;
+          </td>
+        </tr>
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,134 @@
+<h3>Enter Loan Details</h3>
+<h2>Enter Correct Customer ID</h2>
+<div class="container">
+  <form (ngSubmit)="saveILD(LDdata)" #ldForm="ngForm">
+    <table>
+      <tr>
+        <td>
+          <label for="customerID" style="font-weight: 700"
+            >Enter Customer ID</label
+          >
+        </td>
+        <td>
+          <input
+            type="number"
+            name="customerID"
+            id="customerID"
+            [(ngModel)]="LDdata.customerID"
+            required
+            #customerID="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              customerID.invalid && (customerID.dirty || customerID.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="customerID.errors?.['required']">
+              ID cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="loanamount" style="font-weight: 700"
+            >Enter Loan Amount</label
+          >
+        </td>
+        <td>
+          <input
+            type="number"
+            name="loanamount"
+            id="loanamount"
+            [(ngModel)]="LDdata.loanamount"
+            required
+            #loanamount="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              loanamount.invalid && (loanamount.dirty || loanamount.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="loanamount.errors?.['required']">
+              Loan Amount cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="loantenure" style="font-weight: 700"
+            >Enter Loan Tenure</label
+          >
+        </td>
+        <td>
+          <input
+            type="number"
+            name="loantenure"
+            id="loantenure"
+            [(ngModel)]="LDdata.loantenure"
+            required
+            (change)="registerloan()"
+            #loantenure="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              loantenure.invalid && (loantenure.dirty || loantenure.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="loantenure.errors?.['required']">
+              Loan Tenure cannot be blank
+            </div>
+          </div>
+        </td>
+      </tr>
+      <hr width="100%" />
+      <tr>
+        <td>
+          <label for="loaninterestRate" style="font-weight: 700"
+            >Loan interest rate</label
+          >
+        </td>
+        <td>
+          <p
+            class="text"
+            style="
+              color: rgb(0, 0, 0);
+              font-size: 15px;
+              font-weight: 600;
+              text-align: center;
+              letter-spacing: 2px;
+              display: inline;
+              padding-top: 50px;
+            "
+          >
+            {{ LDdata.loaninterestRate }}%
+          </p>
+          <br />
+        </td>
+      </tr>
+
+      <tr>
+        <td style="margin-top: 10px; padding-top: 30px; padding-left: 90px">
+          <input
+            type="submit"
+            value="Save"
+            [disabled]="!ldForm.valid"
+            class="btn btn-success"
+          />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

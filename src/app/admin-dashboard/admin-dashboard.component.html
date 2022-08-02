@@ -1,0 +1,67 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<div class="container">
+  <h1 class="display-2 text-center" style="color: #a760ff">Admin Dashboard</h1>
+  <div class="row">
+    <div class="col-lg-6 col-sm-6">
+      <div class="card-box bg-blue">
+        <div class="inner">
+          <h3>{{ userlist.length }}</h3>
+          <p>All Users</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-id-card-o" aria-hidden="true"></i>
+        </div>
+        <a routerLink="/allusers" class="card-box-footer"
+          >View More <i class="fa fa-arrow-circle-right"></i
+        ></a>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-sm-6">
+      <div class="card-box bg-green">
+        <div class="inner">
+          <h3>{{ clientslist.length }}</h3>
+          <p>Accepted List - Clients</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-money" aria-hidden="true"></i>
+        </div>
+        <a routerLink="/viewclients" class="card-box-footer"
+          >View More <i class="fa fa-arrow-circle-right"></i
+        ></a>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-6">
+      <div class="card-box bg-orange">
+        <div class="inner">
+          <h3>{{ applicantslist.length }}</h3>
+          <p>Pending List - Applicants</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+        </div>
+        <a routerLink="/viewapplicants" class="card-box-footer"
+          >View More <i class="fa fa-arrow-circle-right"></i
+        ></a>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-6">
+      <div class="card-box bg-red">
+        <div class="inner">
+          <h3>{{ rejectslist.length }}</h3>
+          <p>Rejected List</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-users"></i>
+        </div>
+        <a routerLink="/viewrejected" class="card-box-footer"
+          >View More <i class="fa fa-arrow-circle-right"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
