@@ -1,348 +1,326 @@
-<body>
-  <h1>Welcome to Vehicle Loan Services</h1>
-  <hr width="100%" />
-  <h2>Sign Up Page</h2>
-  <h3>Enter These Details for Registration</h3>
-  <br />
-  <div class="container">
+<div class="container">
+  <div class="container-fluid mb-5">
+    <h3>Fill up the Below Details for Registration</h3>
+    <hr width="100%" />
     <form (ngSubmit)="saveDetails(applicantdata)" #applicantForm="ngForm">
-      <table>
-        <tr>
-          <td>
-            <label for="firstname">Enter First Name:</label>
-          </td>
-          <td>
+      <div class="form-group">
+        <label type="text">First Name</label>
+        <input
+          type="text"
+          required
+          #firstname="ngModel"
+          pattern="[a-z,A-Z]{2,25}"
+          id="firstname"
+          name="firstname"
+          [class.is-valid]="firstname.invalid && firstname.touched"
+          class="form-control"
+          [(ngModel)]="applicantdata.firstname"
+        />
+        <span
+          class="text-danger"
+          [class.d-none]="firstname.valid || firstname.untouched"
+          ><span *ngIf="firstname.errors?.['required']">
+            First Name is required
+          </span></span
+        >
+        <span *ngIf="firstname.errors?.['pattern']"> Invalid First Name </span>
+
+        <div class="form-group">
+          <label type="text">Last Name</label>
+          <input
+            type="text"
+            required
+            #lastname="ngModel"
+            pattern="[a-z,A-Z]{2,25}"
+            id="lastname"
+            name="lastname"
+            [class.is-valid]="lastname.invalid && lastname.touched"
+            class="form-control"
+            [(ngModel)]="applicantdata.lastname"
+          />
+          <span
+            class="text-danger"
+            [class.d-none]="lastname.valid || lastname.untouched"
+            ><span *ngIf="lastname.errors?.['required']">
+              Last Name is required
+            </span></span
+          >
+          <span class="text-danger" *ngIf="lastname.errors?.['pattern']">
+            Invalid Last Name
+          </span>
+          <div class="form-group">
+            <label type="number">Age</label>
             <input
-              class="input-style"
-              type="text"
-              name="firstname"
-              id="firstname"
-              [(ngModel)]="applicantdata.firstname"
-              required
-              #firstname="ngModel"
-            />
-          </td>
-          <td>
-            <div
-              *ngIf="
-                firstname.invalid && (firstname.dirty || firstname.touched)
-              "
-              style="color: red"
-            >
-              <div *ngIf="firstname.errors?.['required']">
-                First Name cannot be blank
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="lastname">Enter Last Name:</label>
-          </td>
-          <td>
-            <input
-              class="input-style"
-              type="text"
-              name="lastname"
-              id="lastname"
-              [(ngModel)]="applicantdata.lastname"
-              required
-              #lastname="ngModel"
-            />
-          </td>
-          <td>
-            <div
-              *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)"
-              style="color: red"
-            >
-              <div *ngIf="lastname.errors?.['required']">
-                Last Name cannot be blank
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="age">Enter Age:</label>
-          </td>
-          <td>
-            <input
-              class="input-style"
               type="number"
-              onfocus="this.value=''"
-              value="Click here to clear"
-              name="age"
-              id="age"
-              [(ngModel)]="applicantdata.age"
               required
               #age="ngModel"
+              pattern="[0-9]{2,2}"
+              id="age"
+              name="age"
+              [class.is-valid]="age.invalid && age.touched"
+              class="form-control"
+              [(ngModel)]="applicantdata.age"
             />
-          </td>
-          <td>
-            <div
-              *ngIf="age.invalid && (age.dirty || age.touched)"
-              style="color: red"
+            <span
+              class="text-danger"
+              [class.d-none]="age.valid || age.untouched"
+              ><span *ngIf="age.errors?.['required']">
+                Age is required
+              </span></span
             >
-              <div *ngIf="age.errors?.['required']">Age cannot be blank</div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="gender">Enter Gender:</label>
-          </td>
-          <td>
+            <span class="text-danger" *ngIf="age.errors?.['pattern']">
+              Invalid Age</span
+            >
+          </div>
+          <div class="form-group">
+            <label type="text">Gender</label>
             <input
-              class="input-style"
               type="text"
-              name="gender"
-              id="gender"
-              [(ngModel)]="applicantdata.gender"
               required
               #gender="ngModel"
+              pattern="[a-z,A-Z]{4,10}"
+              id="gender"
+              name="gender"
+              [class.is-valid]="gender.invalid && gender.touched"
+              class="form-control"
+              [(ngModel)]="applicantdata.gender"
             />
-          </td>
-          <td>
-            <div
-              *ngIf="gender.invalid && (gender.dirty || gender.touched)"
-              style="color: red"
+            <span
+              class="text-danger"
+              [class.d-none]="gender.valid || gender.untouched"
+              ><span *ngIf="gender.errors?.['required']">
+                Gender is required
+              </span></span
             >
-              <div *ngIf="gender.errors?.['required']">
-                Gender cannot be blank
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="contactno">Enter Contact No:</label>
-          </td>
-          <td>
+            <span class="text-danger" *ngIf="gender.errors?.['pattern']">
+              Invalid Gender</span
+            >
+          </div>
+          <div class="form-group">
+            <label type="number">Contact Number</label>
             <input
-              class="input-style"
               type="number"
-              onfocus="this.value=''"
-              value="Click here to clear"
-              name="contactno"
-              id="contactno"
-              [(ngModel)]="applicantdata.contactno"
               required
               #contactno="ngModel"
+              pattern="[0-9]{10,10}"
+              id="contactno"
+              name="contactno"
+              [class.is-valid]="contactno.invalid && contactno.touched"
+              class="form-control"
+              [(ngModel)]="applicantdata.contactno"
             />
-          </td>
-          <td>
-            <div
-              *ngIf="
-                contactno.invalid && (contactno.dirty || contactno.touched)
-              "
-              style="color: red"
+            <span
+              class="text-danger"
+              [class.d-none]="contactno.valid || contactno.untouched"
+              ><span *ngIf="contactno.errors?.['required']">
+                Contact No is required
+              </span></span
             >
-              <div *ngIf="contactno.errors?.['required']">
-                Contact No cannot be blank
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="emailid">Enter Email Id:</label>
-          </td>
-          <td>
+            <span class="text-danger" *ngIf="contactno.errors?.['pattern']">
+              Invalid Contact Number</span
+            >
+          </div>
+          <div class="form-group">
+            <label type="mail">Email ID</label>
             <input
-              class="input-style"
               type="email"
-              name="emailid"
-              id="emailid"
-              [(ngModel)]="applicantdata.emailid"
               required
+              [email]="applicantdata.emailid !== ''"
               #emailid="ngModel"
+              id="emailid"
+              name="emailid"
+              [class.is-valid]="emailid.invalid && emailid.touched"
+              class="form-control"
+              [(ngModel)]="applicantdata.emailid"
             />
-          </td>
-          <td>
-            <div
-              *ngIf="emailid.invalid && (emailid.dirty || emailid.touched)"
-              style="color: red"
+            <span
+              class="text-danger"
+              [class.d-none]="emailid.valid || emailid.untouched"
+              ><span *ngIf="emailid.errors?.['required']">
+                Emailid is required
+              </span></span
             >
-              <div *ngIf="emailid.errors?.['required']">
-                Email Id cannot be blank
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="address">Enter Address:</label>
-          </td>
-          <td>
-            <input
-              class="input-style"
-              type="text"
-              name="address"
-              id="address"
-              [(ngModel)]="applicantdata.address"
-              required
-              #address="ngModel"
-            />
-          </td>
-          <td>
-            <div
-              *ngIf="address.invalid && (address.dirty || address.touched)"
-              style="color: red"
+            <span class="text-danger" *ngIf="emailid.errors?.['email']">
+              Invalid Emailid</span
             >
-              <div *ngIf="address.errors?.['required']">
-                Address cannot be blank
-              </div>
+          </div>
+          <div class="form-group">
+            <div class="form-group">
+              <label type="text">Address</label>
+              <input
+                type="text"
+                required
+                #address="ngModel"
+                id="address"
+                name="address"
+                [class.is-valid]="address.invalid && address.touched"
+                class="form-control"
+                [(ngModel)]="applicantdata.address"
+              />
+              <span
+                class="text-danger"
+                [class.d-none]="address.valid || address.untouched"
+                ><span *ngIf="address.errors?.['required']">
+                  Address is required
+                </span></span
+              >
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="state">Enter State:</label>
-          </td>
-          <td>
-            <input
-              class="input-style"
-              type="text"
-              name="state"
-              id="state"
-              [(ngModel)]="applicantdata.state"
-              required
-              #state="ngModel"
-            />
-          </td>
-          <td>
-            <div
-              *ngIf="state.invalid && (state.dirty || state.touched)"
-              style="color: red"
-            >
-              <div *ngIf="state.errors?.['required']">
-                State cannot be blank
-              </div>
+            <div class="form-group">
+              <label type="text">State</label>
+              <input
+                type="text"
+                required
+                #state="ngModel"
+                pattern="[a-z,A-Z]{2,25}"
+                id="state"
+                name="state"
+                [class.is-valid]="state.invalid && state.touched"
+                class="form-control"
+                [(ngModel)]="applicantdata.state"
+              />
+              <span
+                class="text-danger"
+                [class.d-none]="state.valid || state.untouched"
+                ><span *ngIf="state.errors?.['required']">
+                  State is required
+                </span></span
+              >
+              <span class="text-danger" *ngIf="state.errors?.['pattern']">
+                Invalid State Name
+              </span>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="city">Enter City:</label>
-          </td>
-          <td>
-            <input
-              class="input-style"
-              type="text"
-              name="city"
-              id="city"
-              [(ngModel)]="applicantdata.city"
-              required
-              #city="ngModel"
-            />
-          </td>
-          <td>
-            <div
-              *ngIf="city.invalid && (city.dirty || city.touched)"
-              style="color: red"
-            >
-              <div *ngIf="city.errors?.['required']">
-                First Name cannot be blank
-              </div>
+            <div class="form-group">
+              <label type="text">City</label>
+              <input
+                type="text"
+                required
+                #city="ngModel"
+                pattern="[a-z,A-Z]{2,25}"
+                id="city"
+                name="city"
+                [class.is-valid]="city.invalid && city.touched"
+                class="form-control"
+                [(ngModel)]="applicantdata.city"
+              />
+              <span
+                class="text-danger"
+                [class.d-none]="city.valid || city.untouched"
+                ><span *ngIf="city.errors?.['required']">
+                  City is required
+                </span></span
+              >
+              <span class="text-danger" *ngIf="city.errors?.['pattern']">
+                Invalid City Name
+              </span>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="pincode">Enter Pincode:</label>
-          </td>
-          <td>
-            <input
-              class="input-style"
-              type="number"
-              name="pincode"
-              id="pincode"
-              onfocus="this.value=''"
-              value="Click here to clear"
-              [(ngModel)]="applicantdata.pincode"
-              required
-              #pincode="ngModel"
-            />
-          </td>
-          <td>
-            <div
-              *ngIf="pincode.invalid && (pincode.dirty || pincode.touched)"
-              style="color: red"
-            >
-              <div *ngIf="pincode.errors?.['required']">
-                Pincode cannot be blank
-              </div>
+            <div class="form-group">
+              <label type="number">Pincode</label>
+              <input
+                type="number"
+                required
+                #pincode="ngModel"
+                pattern="[0-9]{6,6}"
+                id="pincode"
+                name="pincode"
+                [class.is-valid]="pincode.invalid && pincode.touched"
+                class="form-control"
+                [(ngModel)]="applicantdata.pincode"
+              />
+              <span
+                class="text-danger"
+                [class.d-none]="pincode.valid || pincode.untouched"
+                ><span *ngIf="pincode.errors?.['required']">
+                  Pincode is required
+                </span></span
+              >
+              <span class="text-danger" *ngIf="pincode.errors?.['pattern']">
+                Invalid Pincode
+              </span>
             </div>
-          </td>
-        </tr>
-        <hr />
-        <label class="special-label" for="info"
-          >Below Details will be used for Login</label
-        >
-        <hr />
-        <tr>
-          <td>
-            <label for="userid">Set your User ID for Login:</label>
-          </td>
-          <td>
-            <input
-              class="input-style"
-              type="text"
-              name="userid"
-              id="userid"
-              [(ngModel)]="applicantdata.userid"
-              required
-              #userid="ngModel"
-            />
-          </td>
-          <td>
-            <div
-              *ngIf="userid.invalid && (userid.dirty || userid.touched)"
-              style="color: red"
-            >
-              <div *ngIf="userid.errors?.['required']">
-                User Id cannot be blank
-              </div>
+            <hr />
+            <label for="">Below Details will be used for Login</label>
+            <hr />
+            <div class="form-group">
+              <label type="text">Create an User ID for Login</label>
+              <input
+                type="text"
+                required
+                #userid="ngModel"
+                pattern="[a-z,A-Z,0-9]{4,12}"
+                id="userid"
+                name="userid"
+                [class.is-valid]="userid.invalid && userid.touched"
+                class="form-control"
+                [(ngModel)]="applicantdata.userid"
+              />
+              <small class="text-primary"
+                ><ul>
+                  <li>UserID can include letters and numbers both</li>
+                </ul></small
+              >
+              <span
+                class="text-danger"
+                [class.d-none]="userid.valid || userid.untouched"
+                ><span *ngIf="userid.errors?.['required']">
+                  User Id is required
+                </span></span
+              >
+              <span class="text-danger" *ngIf="userid.errors?.['pattern']">
+                Invalid UserID
+              </span>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="password">Set up a Password for Login:</label>
-          </td>
-          <td>
-            <input
-              class="input-style"
-              type="password"
-              name="password"
-              id="password"
-              [(ngModel)]="applicantdata.password"
-              required
-              #password="ngModel"
-            />
-          </td>
-          <td>
-            <div
-              *ngIf="password.invalid && (password.dirty || password.touched)"
-              style="color: red"
-            >
-              <div *ngIf="password.errors?.['required']">
-                Password cannot be blank
-              </div>
+            <div class="form-group">
+              <label type="text">Create a Password for Login</label>
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                required
+                #password="ngModel"
+                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{6,12}"
+                id="password"
+                name="password"
+                [class.is-valid]="password.invalid && password.touched"
+                class="form-control"
+                [(ngModel)]="applicantdata.password"
+              />
+
+              <button
+                type="button"
+                class="btn1 btn-primary"
+                (click)="showHidePassword()"
+              >
+                {{ showPassword ? "Hide" : "Show" }} Password
+              </button>
+              <small class="text-primary">
+                <p>Password must contain the following:</p>
+                <ul>
+                  <li>Minimum 6 characters (Can be of Maximum 16 characters</li>
+                  <li>At least 1 number</li>
+                  <li>1 Uppercase letter</li>
+                  <li>1 Lowercase letter</li>
+                </ul></small
+              >
+              <span
+                class="text-danger"
+                [class.d-none]="password.valid || password.untouched"
+                ><span *ngIf="password.errors?.['required']">
+                  Password is required
+                </span></span
+              >
+              <span class="text-danger" *ngIf="password.errors?.['pattern']">
+                Invalid password
+              </span>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input
-              type="submit"
-              value="Save"
-              [disabled]="!applicantForm.valid"
-              class="btn btn-success"
-            />
-          </td>
-        </tr>
-      </table>
+            <div class="form-group">
+              <input
+                type="submit"
+                value="Save"
+                [disabled]="!applicantForm.valid"
+                class="btn btn-success"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
-</body>
+</div>

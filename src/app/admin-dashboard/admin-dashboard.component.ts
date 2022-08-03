@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -13,14 +14,25 @@ export class AdminDashboardComponent implements OnInit {
   clientslist: any[] = []
   rejectslist: any[] = []
 
-  constructor(private adminservice:AdminService) {
+  constructor(private adminservice:AdminService,private router:Router) {
     this.adminservice.getApplicantDetails().subscribe(data => { this.userlist = data })
     this.adminservice.getApplicants().subscribe(data => { this.applicantslist = data })
     this.adminservice.getClients().subscribe(data => { this.clientslist = data })
     this.adminservice.getRejectedList().subscribe(data => { this.rejectslist = data })
    }
 
+
+
+   adminlogout(){
+    sessionStorage.removeItem('adminid')
+    sessionStorage.removeItem('adminpassword')
+    
+    alert("You have Successfully Logged Out")
+    this.router.navigate(['/home'])
+  }
+
   ngOnInit(): void {
+    
   }
 
 }

@@ -50,14 +50,16 @@ export class UserDashboardComponent implements OnInit {
 
   logout(){
     sessionStorage.removeItem('userid')
+    sessionStorage.removeItem('password')
+    sessionStorage.removeItem('userdata')
+    alert("You have successfully Loged Out")
     this.router.navigate(['/home'])
   }
 
   ngOnInit(): void {
 
     this.userdata = sessionStorage.setItem('userdata',this.userdata);
-    this.userdata = sessionStorage.setItem('id',this.id)
-    this.id=String(sessionStorage.getItem('customerid'));
+    
   }
 
 }

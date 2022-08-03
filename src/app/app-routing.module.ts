@@ -19,9 +19,12 @@ import { AddldComponent } from './addld/addld.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { LoanSuccessComponent } from './loan-success/loan-success.component';
 import { LoanStatusCheckComponent } from './loan-status-check/loan-status-check.component';
+import { DocumentsuploadComponent } from './documentsupload/documentsupload.component';
+import { LoanschemeComponent } from './loanscheme/loanscheme.component';
 
 
 const routes: Routes = [
+  {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path:'add',component:RegistrationComponent},
   {path:'home',component:HomepageComponent},
   {path:'emicalc',component:EmicalculatorComponent},
@@ -40,7 +43,9 @@ const routes: Routes = [
   {path:'addloan',component:AddldComponent},
   {path:'userdashboard/:id',component:UserDashboardComponent},
   {path:'loansuccess',component:LoanSuccessComponent},
-  {path:'loanstatus/:id',component:LoanStatusCheckComponent}
+  {path:'loanstatus/:id',component:LoanStatusCheckComponent},
+  {path:'documents',component:DocumentsuploadComponent},
+  {path:'loanscheme',component:LoanschemeComponent}
 
 
 

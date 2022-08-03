@@ -1,6 +1,7 @@
 <h2>Loan Scheme</h2>
-<h3>Enter correct Customer ID</h3>
-<h4>Current Schemes:</h4>
+
+<h4>Current Schemes: Monsoon Madness Offer</h4>
+<h5>Enter Only the Customer ID and Account Type</h5>
 <div class="container">
   <form (ngSubmit)="addloan(loanscheme)" #loanForm="ngForm" ngNativeValidate>
     <table>
@@ -35,7 +36,9 @@
       </tr>
       <tr>
         <td>
-          <label for="schemename" style="font-weight: 700">Enter scheme</label>
+          <label for="schemename" style="font-weight: 700"
+            >Current Scheme</label
+          >
         </td>
         <td>
           <input
@@ -45,6 +48,7 @@
             [(ngModel)]="loanscheme.schemename"
             required
             #schemename="ngModel"
+            [readonly]="true"
           />
         </td>
         <td>
@@ -53,81 +57,13 @@
               schemename.invalid && (schemename.dirty || schemename.touched)
             "
             style="color: red"
-          >
-            <div *ngIf="schemename.errors?.['required']">
-              Customer ID cannot be blank
-            </div>
-          </div>
+          ></div>
         </td>
       </tr>
 
       <tr>
         <td>
-          <label
-            for="maxloanamount"
-            style="font-weight: 700; padding-left: 15px"
-            >Enter Max Loan Amount</label
-          >
-        </td>
-        <td>
-          <input
-            type="number"
-            name="maxloanamount"
-            id="maxloanamount"
-            [(ngModel)]="loanscheme.maxloanamount"
-            required
-            #maxloanamount="ngModel"
-          />
-        </td>
-        <td>
-          <div
-            *ngIf="
-              maxloanamount.invalid &&
-              (maxloanamount.dirty || maxloanamount.touched)
-            "
-            style="color: red"
-          >
-            <div *ngIf="maxloanamount.errors?.['required']">
-              Type of Employment cannot be blank
-            </div>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <label for="interestrate" style="font-weight: 700"
-            >Enter Yearly Salary</label
-          >
-        </td>
-        <td>
-          <input
-            type="number"
-            name="interestrate"
-            id="interestrate"
-            [(ngModel)]="loanscheme.interestrate"
-            required
-            #interestrate="ngModel"
-          />
-        </td>
-        <td>
-          <div
-            *ngIf="
-              interestrate.invalid &&
-              (interestrate.dirty || interestrate.touched)
-            "
-            style="color: red"
-          >
-            <div *ngIf="interestrate.errors?.['required']">
-              Yearly Salary cannot be blank
-            </div>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <label for="emi" style="font-weight: 700">Enter Existing EMI</label>
+          <label for="emi" style="font-weight: 700"></label>
         </td>
         <td>
           <input
@@ -136,6 +72,7 @@
             id="emi"
             [(ngModel)]="loanscheme.emi"
             required
+            [hidden]="true"
             #emi="ngModel"
           />
         </td>
@@ -143,15 +80,13 @@
           <div
             *ngIf="emi.invalid && (emi.dirty || emi.touched)"
             style="color: red"
-          >
-            <div *ngIf="emi.errors?.['required']">EMI cannot be blank</div>
-          </div>
+          ></div>
         </td>
       </tr>
       <tr>
         <td>
           <label for="processingfee" style="font-weight: 700"
-            >Enter Existing EMI</label
+            >Processing Fee on All Loans</label
           >
         </td>
         <td>
@@ -161,6 +96,7 @@
             id="processingfee"
             [(ngModel)]="loanscheme.processingfee"
             required
+            [readonly]="true"
             #processingfee="ngModel"
           />
         </td>
@@ -202,9 +138,62 @@
             style="color: red"
           >
             <div *ngIf="accounttype.errors?.['required']">
-              accounttype cannot be blank
+              Account Type cannot be blank
             </div>
           </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="interestrate" style="font-weight: 700"></label>
+        </td>
+        <td>
+          <input
+            type="number"
+            name="interestrate"
+            id="interestrate"
+            [(ngModel)]="loanscheme.interestrate"
+            required
+            [hidden]="true"
+            #interestrate="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              interestrate.invalid &&
+              (interestrate.dirty || interestrate.touched)
+            "
+            style="color: red"
+          ></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label
+            for="maxloanamount"
+            style="font-weight: 700; padding-left: 15px"
+          ></label>
+        </td>
+        <td>
+          <input
+            type="number"
+            name="maxloanamount"
+            id="maxloanamount"
+            [(ngModel)]="loanscheme.maxloanamount"
+            required
+            [hidden]="true"
+            #maxloanamount="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              maxloanamount.invalid &&
+              (maxloanamount.dirty || maxloanamount.touched)
+            "
+            style="color: red"
+          ></div>
         </td>
       </tr>
 

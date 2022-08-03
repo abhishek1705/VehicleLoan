@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { IApplicationDetailed } from './iapplication-detailed';
+import { Idocuments } from './idocuments';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,11 @@ export class UserService {
   getApplicationStatusValidation(id:number):Observable<any> {
     return this.httpclient.get<any>(this.url + 'ApplicationStatusValidation/' + id).pipe(catchError(this.handleError));
   }
+
+  addDocuments(docs:Idocuments):Observable<Idocuments> {
+    return this.httpclient.post<Idocuments>(this.url + "AddDocuments", docs, this.httpOptions).pipe(catchError(this.handleError));
+  }
+
 
 
 

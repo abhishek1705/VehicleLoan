@@ -12,7 +12,7 @@ export class LoanschemeComponent implements OnInit {
 
   
 
-  loanscheme:Iloanscheme={schemename:'Loan',maxloanamount:0,interestrate:0,emi:0,processingfee:0,accounttype:'',customerid:0}
+  loanscheme:Iloanscheme={schemename:'Monsoon Madness Offer',maxloanamount:100000000,interestrate:8,emi:50000,processingfee:2000,accounttype:'',customerid:0}
 
   constructor(private formservice:FormService,private router:Router) { }
 

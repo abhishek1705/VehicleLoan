@@ -19,14 +19,23 @@
       >
         Enter the Vehical Detail
       </p>
-      <input type="text" style="width: 43%" placeholder="Vehicle Make" />
+      <input
+        type="text"
+        style="width: 43%"
+        placeholder="Vehicle Make"
+      />&nbsp;&nbsp;&nbsp;&nbsp;
       <input
         type="text"
         style="width: 43%; float: right"
         placeholder="Vehicle Model"
       />
       <br />
-      <input type="text" style="width: 43%" placeholder="Ex-Showroom Price" />
+
+      <input
+        type="text"
+        style="width: 43%"
+        placeholder="Ex-Showroom Price"
+      />&nbsp;&nbsp;&nbsp;&nbsp;
       <input
         type="number"
         onfocus="this.value=''"
@@ -51,6 +60,7 @@
         Enter the Applicant Detail
       </p>
       <input type="text" style="width: 43%" placeholder="First Name" />
+      &nbsp;&nbsp;&nbsp;&nbsp;
       <input
         type="text"
         style="width: 43%; float: right"
@@ -64,6 +74,7 @@
         style="width: 43%"
         placeholder="Age"
       />
+      &nbsp;&nbsp;&nbsp;&nbsp;
 
       <input
         type="text"
@@ -72,6 +83,7 @@
         required
       />
       <input type="text" style="width: 43%" placeholder="Type of Employment" />
+      &nbsp;&nbsp;&nbsp;&nbsp;
       <input
         type="number"
         onfocus="this.value=''"
@@ -92,6 +104,7 @@
         [(ngModel)]="existingemi"
         required
       />
+      &nbsp;&nbsp;&nbsp;&nbsp;
       <input
         type="number"
         onfocus="this.value=''"
@@ -117,6 +130,7 @@
       </p>
 
       <input type="text" style="width: 43%" placeholder="Mobile Number" />
+      &nbsp;&nbsp;&nbsp;&nbsp;
       <input
         type="email"
         ngModel
@@ -145,5 +159,7 @@
     </p>
     <br />
   </form>
-  <a [routerLink]="['/userlogin']"><button type="button">APPLY NOW</button></a>
+  <a [routerLink]="['/userlogin']"
+    ><button type="button" class="btn btn-primary">APPLY NOW</button></a
+  >
 </div>

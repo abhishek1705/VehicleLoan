@@ -23,8 +23,8 @@ export class AdminloginComponent implements OnInit {
     this.router.navigate(['/admindashboard'])
     
 
-    sessionStorage.setItem('userid',String(this.adminlogin.adminid));
-    sessionStorage.setItem('password',this.adminlogin.adminpassword)
+    sessionStorage.setItem('adminid',String(this.adminlogin.adminid));
+    sessionStorage.setItem('adminpassword',this.adminlogin.adminpassword)
 
 
   })

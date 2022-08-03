@@ -37,7 +37,7 @@ login(user:Iuserlogin){
 
 
 ngOnInit(): void {
-  this.userlogin.userid=String(sessionStorage.getItem('userid'));
+  // this.userlogin.userid=String(sessionStorage.getItem('userid'));
 }
  
   

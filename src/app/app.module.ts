@@ -34,6 +34,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { LoanSuccessComponent } from './loan-success/loan-success.component';
 import { LoanStatusCheckComponent } from './loan-status-check/loan-status-check.component';
 import { LoanschemeComponent } from './loanscheme/loanscheme.component';
+import { DocumentsuploadComponent } from './documentsupload/documentsupload.component';
 
 
 
@@ -60,7 +61,8 @@ import { LoanschemeComponent } from './loanscheme/loanscheme.component';
     UserDashboardComponent,
     LoanSuccessComponent,
     LoanStatusCheckComponent,
-    LoanschemeComponent
+    LoanschemeComponent,
+    DocumentsuploadComponent
   ],
   imports: [
     BrowserModule,

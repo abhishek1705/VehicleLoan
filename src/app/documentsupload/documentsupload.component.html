@@ -1,0 +1,169 @@
+<h2>Adding Documents</h2>
+<br />
+<div class="container">
+  <form (ngSubmit)="saveDocuments(documents)" #documentsForm="ngForm">
+    <table>
+      <tr>
+        <td>
+          <label for="CustomerId">Enter ID: </label>
+        </td>
+        <td>
+          <input
+            type="number"
+            id="CustomerId"
+            name="CustomerId"
+            [(ngModel)]="documents.CustomerId"
+            required
+            #CustomerId="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              CustomerId.invalid && (CustomerId.dirty || CustomerId.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="CustomerId.errors?.['required']">
+              ID Cannot be Blank.
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="Adharcard">Upload Aadhar Card: &nbsp;</label>
+          <label class="btn btn-primary" for="Adharcard">Upload</label>
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            class="btn-check"
+            id="Adharcard"
+            name="Adharcard"
+            [(ngModel)]="documents.Adharcard"
+            required
+            #Adharcard="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="Adharcard.invalid && (Adharcard.dirty || Adharcard.touched)"
+            style="color: red"
+          >
+            <div *ngIf="Adharcard.errors?.['required']">
+              Aadhar Card is Required.
+            </div>
+          </div>
+          <div *ngIf="Adharcard.valid" style="color: green">
+            Aadhar card Uploaded Successfully! <i class="fa fa-check"></i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="Pancard">Upload PAN Card: &nbsp;</label>
+          <label class="btn btn-primary" for="Pancard">Upload</label>
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            class="btn-check"
+            id="Pancard"
+            name="Pancard"
+            [(ngModel)]="documents.Pancard"
+            required
+            #Pancard="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="Pancard.invalid && (Pancard.dirty || Pancard.touched)"
+            style="color: red"
+          >
+            <div *ngIf="Pancard.errors?.['required']">
+              PAN Card is Required.
+            </div>
+          </div>
+          <div *ngIf="Pancard.valid" style="color: green">
+            PAN Uploaded Successfully! <i class="fa fa-check"></i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="Photo">Upload Passport Photo: &nbsp;</label>
+          <label class="btn btn-primary" for="Photo">Upload</label>
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            class="btn-check"
+            id="Photo"
+            name="Photo"
+            [(ngModel)]="documents.Photo"
+            required
+            #Photo="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="Photo.invalid && (Photo.dirty || Photo.touched)"
+            style="color: red"
+          >
+            <div *ngIf="Photo.errors?.['required']">
+              Passport Photo is Required.
+            </div>
+          </div>
+          <div *ngIf="Photo.valid" style="color: green">
+            Passport Photo Uploaded Successfully! <i class="fa fa-check"></i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="Salaryslip">Upload Salary Slip: &nbsp;</label>
+          <label class="btn btn-primary" for="Salaryslip">Upload</label>
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            class="btn-check"
+            id="Salaryslip"
+            name="Salaryslip"
+            [(ngModel)]="documents.Salaryslip"
+            required
+            #Salaryslip="ngModel"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              Salaryslip.invalid && (Salaryslip.dirty || Salaryslip.touched)
+            "
+            style="color: red"
+          >
+            <div *ngIf="Salaryslip.errors?.['required']">
+              Salary Slip is Required.
+            </div>
+          </div>
+          <div *ngIf="Salaryslip.valid" style="color: green">
+            Salary Slip Uploaded Successfully! <i class="fa fa-check"></i>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input
+            type="submit"
+            value="Save"
+            [disabled]="!documentsForm.valid"
+            class="btn btn-success"
+          />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
