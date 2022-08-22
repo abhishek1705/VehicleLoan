@@ -28,7 +28,7 @@ login(user:Iuserlogin){
   this.router.navigate(['/userdashboard/',this.userlogin.userid])
 
   sessionStorage.setItem('userid',this.userlogin.userid);
-  sessionStorage.setItem('password',this.userlogin.password)
+  
   
 })
 }

@@ -52,7 +52,7 @@ export class UserDashboardComponent implements OnInit {
     sessionStorage.removeItem('userid')
     sessionStorage.removeItem('password')
     sessionStorage.removeItem('userdata')
-    alert("You have successfully Loged Out")
+    alert("You have successfully Logged Out")
     this.router.navigate(['/home'])
   }
 

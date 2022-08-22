@@ -81,3 +81,12 @@
    text-align: center;
  }
 
+ .footer {
+  overflow: hidden;
+  width: 100%;
+  font-size: small;
+  background-color: #0e09b6;
+  font-family: Verdana, sans-serif;
+  color: rgb(226, 225, 225);
+  text-align: center;
+}

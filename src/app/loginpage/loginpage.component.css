@@ -63,6 +63,16 @@ input,
 * {
   box-sizing: border-box;
 }
+.footer {
+  overflow: hidden;
+  width: 100%;
+  font-size: small;
+  background-color: #0e09b6;
+  font-family: Verdana, sans-serif;
+  color: rgb(226, 225, 225);
+  text-align: center;
+}
+
 
 /* body{
   background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.EqgcOEa-o7hUGoyOrv9DnwHaEK%26pid%3DApi&f=1");

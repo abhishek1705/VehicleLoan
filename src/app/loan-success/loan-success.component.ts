@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class LoanSuccessComponent implements OnInit {
 
   
-  constructor() { }
+  constructor() { 
+    sessionStorage.removeItem('userid')
+    
+  }
  
 
   ngOnInit(): void {
